@@ -15,14 +15,18 @@ Supports:
 
 
 # Installation
+
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 Check the version of uv
+
 ```bash
 uv --version
 ```
+
+
 # Applications
 Create an application project. 
 
@@ -36,41 +40,95 @@ This creates the following files:
 uv init example-app
 ```
 
+
 Execute python file with:
+
 ```bash
 cd example-app
 uv run main.py
 ```
 
+
 # Packaged Applications
 Use `--package` to create a packaged application. 
 
 Used if publishing to PyPI. Source code is placed in `src` directory.
+
 ```bash
 uv init --package example-pkg
 ```
 
+
 Execute command with:
+
 ```bash
 cd example-pkg
 uv run example-pkg
 ```
 
+
 # Libraries
 Use --lib to create a library. 
 
 Intended to be built and distributed. A `py.typed` placeholder is included to indicate consumers that types can be read from the library
+
 ```bash
 uv init --lib example-lib
 ```
 
+
 Import and execute library with `uv run`:
+
 ```bash
 cd example-lib
 uv run python -c "import example_lib; print(example_lib.hello())"
 ```
 
+
 Creating a virtual environment
 ```bash
 uv venv
+```
+
+# Scripts
+https://docs.astral.sh/uv/guides/scripts/
+
+Use --script to create a script with inline script metadata.
+
+```bash
+cd example-script
+uv init --script example-script.py --python 3.12
+```
+
+Declare script dependencies
+
+```bash
+uv add --script example-script.py 'requests<3' 'rich'
+```
+
+Rum the script
+
+```bash
+uv run example-script.py
+```
+
+Add shebang to make executable
+```python
+# greet
+#!/usr/bin/env -S uv run --script
+
+print("Hello, world!")
+```
+
+Make script executable, `chmod +x greet`, then run script
+```bash
+$ ./greet
+Hello, world!
+```
+
+Scripts must explicitly locked using `uv lock`
+
+```bash
+
+uv lock --script example-script.py
 ```
