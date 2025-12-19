@@ -25,6 +25,10 @@ Check the version of uv
 ```bash
 uv --version
 ```
+* [Applications](#applications)
+* [Packaged Applications](#packaged-applications)
+* [Libraries](#libraries)
+* [Scripts](#scripts)
 
 
 # Applications
