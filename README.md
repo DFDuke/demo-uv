@@ -136,3 +136,9 @@ Scripts must explicitly locked using `uv lock`
 
 uv lock --script example-script.py
 ```
+
+Current reading
+https://docs.astral.sh/uv/guides/projects/#managing-dependencies
+https://docs.astral.sh/uv/concepts/projects/layout/#the-pyprojecttoml
+https://docs.astral.sh/uv/guides/package/#building-your-
+https://docs.astral.sh/uv/concepts/projects/workspaces/
